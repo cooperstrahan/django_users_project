@@ -1,0 +1,45 @@
+Users.objects.create(first_name="Cooper", last_name="Strahan", email_a
+   ...: ddress="cooperstrahan@gmail.com" , age=23)                            
+Out[3]: <Users: Users object>
+
+In [4]: Users.objects.create(first_name="Dylan", last_name="Strahan", email_ad
+   ...: dress="dks@gmail.com", age=21)                                        
+Out[4]: <Users: Users object>
+
+In [5]: Users.objects.create(first_name="Wyatt", last_name="Strahan", email_ad
+   ...: dress="wrs@gmail.com", age=17)                                        
+Out[5]: <Users: Users object>
+
+In [6]: Users.objects.all()                                                   
+Out[6]: <QuerySet [<Users: Users object>, <Users: Users object>, <Users: Users object>]>
+
+In [7]: Users.objects.last()                                                  
+Out[7]: <Users: Users object>
+
+In [8]: Users.objects.first()                                                 
+Out[8]: <Users: Users object>
+
+In [9]: c = Users.objects.get(id=3)                                           
+
+In [10]: c.last_name = "Pancakes"                                             
+
+In [11]: c.save()                                                             
+
+In [12]: a = Users.objects.get(id=2)                                          
+
+In [13]: a.delete()                                                           
+Out[13]: (1, {'app_users.Users': 1})
+
+In [14]: Users.objects.all().orderby("first_name")                            
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-14-542f14681879> in <module>
+----> 1 Users.objects.all().orderby("first_name")
+
+AttributeError: 'QuerySet' object has no attribute 'orderby'
+
+In [15]: Users.objects.all().order_by("first_name")                           
+Out[15]: <QuerySet [<Users: Users object>, <Users: Users object>]>
+
+In [16]: Users.objects.all().order_by("-first_name")                          
+Out[16]: <QuerySet [<Users: Users object>, <Users: Users object>]>
